@@ -368,11 +368,11 @@ void run_nightmare(int argc, char **argv)
     int e;
     int n;
     for(e = 0; e < rounds; ++e){
-        fprintf(stderr, "Iteration: ");
-        fflush(stderr);
+        fprintf(stdout, "Iteration: ");
+        fflush(stdout);
         for(n = 0; n < iters; ++n){  
-            fprintf(stderr, "%d, ", n);
-            fflush(stderr);
+            fprintf(stdout, "%d, ", n);
+            fflush(stdout);
             if(reconstruct){
                 reconstruct_picture(net, features, im, update, rate, momentum, lambda, smooth_size, 1);
                 //if ((n+1)%30 == 0) rate *= .5;
@@ -383,7 +383,7 @@ void run_nightmare(int argc, char **argv)
                 optimize_picture(net, im, layer, 1/pow(1.33333333, octave), rate, thresh, norm);
             }
         }
-        fprintf(stderr, "done\n");
+        fprintf(stdout, "done\n");
         if(0){
             image g = grayscale_image(im);
             free_image(im);
