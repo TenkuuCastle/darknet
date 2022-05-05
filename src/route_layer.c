@@ -20,6 +20,7 @@ route_layer make_route_layer(int batch, int n, int *input_layers, int *input_siz
         outputs += input_sizes[i];
     }
     fprintf(stderr, "\n");
+
     l.outputs = outputs;
     l.inputs = outputs;
     l.delta =  calloc(outputs*batch, sizeof(float));
